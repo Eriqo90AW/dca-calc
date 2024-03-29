@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto DCA Calculator</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico" />
+    <style>
+      * {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.11"
+      integrity="sha384-0gxUXCCR8yv9FM2b+U3FDbsKthCI66oH5IA9fHppQq9DDMHuMauqq1ZHBpJxQ0J0"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@preline/ui@latest/dist/preline.min.js"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  </head>
+  <body>
+    <div
+      class="absolute bg-[#456fda] top-[-5rem] z-10 left-[-5rem] h-[16rem] w-[16rem] rounded-full blur-[3rem] opacity-100"
+    ></div>
+    <div
+      class="absolute bg-[#0d00ffa3] top-[-3rem] z-10 left-[-3rem] h-[10rem] w-[10rem] rounded-full blur-[3rem] opacity-100"
+    ></div>
+    <div
+      class="absolute bg-[#F2BB05] bottom-[-3rem] z-1 right-0 h-[7rem] w-[7rem] rounded-full blur-[3rem] opacity-80"
+    ></div>
+    <div
+      class="absolute bg-[#ffff37] bottom-[-3rem] z-1 right-0 h-[10rem] w-[10rem] rounded-full blur-[5rem] opacity-90"
+    ></div>
+    <div class="text-center">
+      <div
+        id="home"
+        class="grid grid-cols-2 text-left h-[100vh] w-full px-[15rem]"
+      >
+        <div class="flex flex-col justify-center gap-8 pb-20">
+          <h1
+            class="mt-[5rem] pb-2 font-bold text-3xl tracking-tighter sm:text-5xl md:text-6xl"
+          >
+            DCA Calculator
+          </h1>
+          <p
+            class="text-gray-500 md:text-lg/tight lg:text-base/tight xl:text-lg/normal dark:text-gray-400"
+          >
+            Make the most of your investments with dollar-cost averaging. Enter
+            your details to see how consistent investments can grow over time.
+          </p>
+          <button
+            type="button"
+            class="py-[0.6rem] px-4 max-w-[12rem] gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-900 text-white hover:bg-gray-800 disabled:opacity-50 disabled:pointer-events-none hover:scale-[97.5%] transition-all ease-in-out"
+          >
+            <a href="#calculator">Try the Calculator</a>
+          </button>
+        </div>
+        <div class="flex items-center justify-end pr-20">
+          <lottie-player
+            src="https://lottie.host/61ab3fc0-cb0e-4079-804d-5f3b3d311c3f/BigzFELzS4.json"
+            background="#FFFFFF"
+            speed="1"
+            style="width: 300px; height: 300px"
+            loop
+            autoplay
+            direction="1"
+            mode="normal"
+          ></lottie-player>
+        </div>
+      </div>
+      <div
+        id="calculator"
+        class="grid grid-cols-2 text-left h-[100vh] w-full px-[15rem] bg-gray-100 absolute"
+      >
+        <div class="flex flex-col justify-center pt-[2rem]">
+          <div class="flex flex-col gap-3">
+            <h2
+              class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
+            >
+              Calculate your returns
+            </h2>
+            <p
+              class="text-gray-500 md:text-[1.05rem]/tight lg:text-[1.05rem]/tight xl:text-[1.05rem]/normal dark:text-gray-400"
+            >
+              Make the most of your investments with dollar-cost averaging.
+              Enter your details to see how consistent investments can grow over
+              time.
+            </p>
+          </div>
+          <div class="flex flex-col py-4">
+            <form
+              hx-post="/calculate"
+              hx-target="#result"
+              hx-trigger="submit"
+              hx-indicator="#loading"
+              hx-prevent-submit
+            >
+              <div class="flex flex-col py-2 gap-2 min-w-[10rem]">
+                <label for="id" class="font-semibold">Cryptocurrency</label>
+                <select
+                  id="id"
+                  name="id"
+                  class="rounded-md border border-gray-300 py-[0.4rem] px-3"
+                >
+                  <option value="BTC">BTC</option>
+                  <option value="ETH">ETH</option>
+                  <option value="ICP">ICP</option>
+                  <option value="SOL">SOL</option>
+                  <option value="GALA">GALA</option>
+                  <option value="RNDR">RNDR</option>
+                  <option value="AR">AR</option>
+                  <option value="INJ">INJ</option>
+                  <option value="FLOKI">FLOKI</option>
+                </select>
+              </div>
+              <div class="flex flex-col py-2 gap-2 min-w-[10rem]">
+                <label for="start_date" class="font-semibold"
+                  >Starting Date</label
+                >
+                <input
+                  type="date"
+                  id="start_date"
+                  name="start_date"
+                  class="rounded-md border border-gray-300 py-[0.3rem] px-4"
+                />
+              </div>
+              <div class="flex flex-col py-2 gap-2 min-w-[10rem]">
+                <label for="interval" class="font-semibold">Interval</label>
+                <select
+                  id="interval"
+                  name="interval"
+                  class="rounded-md border border-gray-300 py-[0.4rem] px-3"
+                >
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="monthly">Monthly</option>
+                </select>
+              </div>
+              <div class="flex flex-col py-2 gap-2">
+                <label for="value" class="font-semibold"
+                  >Value (Each Interval)</label
+                >
+                <input
+                  type="text"
+                  id="value"
+                  name="value"
+                  class="rounded-md border border-gray-300 py-2 px-4 placeholder:text-black"
+                  placeholder="Enter Value (IDR)"
+                />
+              </div>
+              <div class="flex justify-center">
+                <button
+                  type="submit"
+                  class="py-2 mt-6 px-12 max-w-[12rem] gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-900 text-white hover:bg-gray-800 disabled:opacity-50 disabled:pointer-events-none hover:scale-[97.5%] transition-all ease-in-out"
+                >
+                  Calculate
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center items-center pt-[2rem]">
+          <div class="mb-16">
+            <span id="loading" class="htmx-indicator">
+              <img src="img/infinity.gif" alt="Loading..." class="m-auto h-10" />
+            </span>
+            <div id="result" class="transition-all ease-in-out">
+              <div class="flex flex-col gap-10 min-w-[20rem] ml-20">
+                <div
+                  class="text-justify justify-center flex flex-col items-center gap-4"
+                >
+                  <h2 class="font-bold text-3xl">Invest with Confidence</h2>
+                  <p class="text-gray-500 text-md/tight">
+                    &nbsp;&nbsp;Dollar-cost averaging (DCA) is a strategy that
+                    allows investors to spread out their investment over time,
+                    reducing the impact of market volatility. Whether the market
+                    is up or down, DCA can help you build wealth with a
+                    disciplined approach.
+                  </p>
+                </div>
+                <div
+                  class="text-justify justify-center flex flex-col items-center gap-4"
+                >
+                  <img
+                    src="./img/calculator.png"
+                    alt="calculator"
+                    width="60rem"
+                    height="60rem"
+                  />
+                  <h3 class="font-bold text-lg">About the Calculator</h3>
+                  <p class="text-gray-500 text-md/tight">
+                    &nbsp;&nbsp;&nbsp;&nbsp;Our DCA calculator provides an
+                    estimate of the value of your investments based on the
+                    amount you invest, the frequency of your investments, and
+                    the duration of your investment horizon. It does not take
+                    into account any fees, taxes, or other costs associated with
+                    investing.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
