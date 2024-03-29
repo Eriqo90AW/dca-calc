@@ -1,6 +1,5 @@
 import express from "express";
 import axios from "axios";
-import template from "./template.js";
 
 const app = express();
 const port = 3000;
@@ -65,12 +64,13 @@ app.post("/calculate", async (req, res) => {
   }
   const intValue = parseInt(value);
   try {
+    const numDays = daysBetween(start_date)
     const response = await axios.get(
       `https://api.coingecko.com/api/v3/coins/${cryptoId[id]}/market_chart`,
       {
         params: {
           vs_currency: "idr",
-          days: daysBetween(start_date),
+          days: numDays,
           interval: "daily",
         },
         headers: {
@@ -149,23 +149,18 @@ app.listen(port, () => {
 });
 
 function daysBetween(startDateStr) {
-  // Validate date format (optional)
   const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
   if (!dateRegex.test(startDateStr)) {
     console.error(`Invalid date format: ${startDateStr}`);
     return null;
   }
 
-  // Parse the date string
   const startDate = new Date(startDateStr);
 
-  // Get today's date
   const today = new Date();
 
-  // Calculate the difference in milliseconds
   const timeDiff = today.getTime() - startDate.getTime();
 
-  // Convert milliseconds to days and subtract one
   const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
 
   return daysDiff;
