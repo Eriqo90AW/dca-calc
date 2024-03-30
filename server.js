@@ -1,5 +1,6 @@
 import express from "express";
 import axios from "axios";
+import cors from "cors";
 
 const app = express();
 const port = 3000;
@@ -7,6 +8,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cors());
 
 app.get("/users", (req, res) => {
   const data = [
