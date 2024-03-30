@@ -7,12 +7,8 @@ const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use("/", express.static("public"));
 app.use(cors());
-
-app.use("/test", (req, res) => {
-    res.send("Hello World!");
-});
 
 app.get("/users", (req, res) => {
   const data = [
