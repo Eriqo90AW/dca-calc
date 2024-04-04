@@ -21,72 +21,76 @@
   </head>
   <body>
     <div
-      class="absolute bg-[#456fda] top-[-5rem] z-10 left-[-5rem] h-[16rem] w-[16rem] rounded-full blur-[3rem] opacity-100"
+      class="absolute bg-[#456fda] top-[-2.5rem] left-[-2.5rem] md:top-[-5rem] z-10 md:left-[-5rem] md:h-[16rem] md:w-[16rem] h-[6rem] w-[6rem] rounded-full md:blur-[3rem] blur-[1rem] opacity-100"
     ></div>
     <div
-      class="absolute bg-[#0d00ffa3] top-[-3rem] z-10 left-[-3rem] h-[10rem] w-[10rem] rounded-full blur-[3rem] opacity-100"
+      class="absolute bg-[#0d00ff] top-[-2.5rem] left-[-2.5rem] md:top-[-5rem] z-10 md:left-[-5rem] md:h-[10rem] md:w-[10rem] h-[5.5rem] w-[5.5rem] rounded-full md:blur-[3rem] blur-[1rem] opacity-100"
     ></div>
     <div
-      class="absolute bg-[#F2BB05] bottom-[-3rem] z-1 right-0 h-[7rem] w-[7rem] rounded-full blur-[3rem] opacity-80"
+      class="absolute bg-[#ffff37] z-1 top-[63vh] right-[50vw] md:top-[92.5%] md:right-0 h-[7rem] w-[7rem] md:h-[10rem] md:w-[10rem] rounded-full blur-[1rem] md:blur-[5rem] opacity-90"
     ></div>
     <div
-      class="absolute bg-[#ffff37] bottom-[-3rem] z-1 right-0 h-[10rem] w-[10rem] rounded-full blur-[5rem] opacity-90"
+      class="absolute bg-[#F2BB05] z-1 top-[64vh] right-[47.5vw] md:top-[92.5%] md:right-0 h-[6rem] w-[6rem] md:h-[7rem] md:w-[7rem] rounded-full blur-[1rem] md:blur-[3rem] opacity-80"
     ></div>
     <div class="text-center">
       <div
         id="home"
-        class="grid grid-cols-2 text-left h-[100vh] w-full px-[15rem]"
+        class="md:grid md:grid-cols-2 text-left h-[55vh] md:h-[100vh] w-full px-7 md:px-[15rem]"
       >
-        <div class="flex flex-col justify-center gap-8 pb-20">
+        <div
+          class="flex flex-col justify-center gap-2 md:gap-8 md:pb-20 mt-[8rem] md:mt-0"
+        >
           <h1
-            class="mt-[5rem] pb-2 font-bold text-3xl tracking-tighter sm:text-5xl md:text-6xl"
+            class="md:mt-[5rem] md:pb-2 font-bold text-xl tracking-tighter md:text-6xl"
           >
             DCA Calculator
           </h1>
-          <p
-            class="text-gray-500 md:text-lg/tight lg:text-base/tight xl:text-lg/normal dark:text-gray-400"
-          >
-            Make the most of your investments with dollar-cost averaging. Enter
-            your details to see how consistent investments can grow over time.
-          </p>
-          <button
-            type="button"
-            class="py-[0.6rem] px-4 max-w-[12rem] gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-gray-900 text-white hover:bg-gray-800 disabled:opacity-50 disabled:pointer-events-none hover:scale-[97.5%] transition-all ease-in-out"
-          >
-            <a href="#calculator">Try the Calculator</a>
-          </button>
-        </div>
-        <div class="flex items-center justify-end pr-20">
-          <lottie-player
-            src="https://lottie.host/61ab3fc0-cb0e-4079-804d-5f3b3d311c3f/BigzFELzS4.json"
-            background="#FFFFFF"
-            speed="1"
-            style="width: 300px; height: 300px"
-            loop
-            autoplay
-            direction="1"
-            mode="normal"
-          ></lottie-player>
-        </div>
-      </div>
-      <div
-        id="calculator"
-        class="grid grid-cols-2 text-left h-[100vh] w-full px-[15rem] bg-gray-100 absolute"
-      >
-        <div class="flex flex-col justify-center pt-[2rem]">
-          <div class="flex flex-col gap-3">
-            <h2
-              class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl"
-            >
-              Calculate your returns
-            </h2>
+          <div class="max-w-[57%] md:max-w-none">
             <p
-              class="text-gray-500 md:text-[1.05rem]/tight lg:text-[1.05rem]/tight xl:text-[1.05rem]/normal dark:text-gray-400"
+              class="text-gray-500 text-xs/tight pb-4 md:pb-0 md:text-lg/tight dark:text-gray-400 text-justify"
             >
               Make the most of your investments with dollar-cost averaging.
               Enter your details to see how consistent investments can grow over
               time.
             </p>
+          </div>
+          <button
+            type="button"
+            class="py-[0.4rem] md:py-[0.6rem] md:px-4 max-w-[8rem] md:max-w-[12rem] gap-x-2 text-xs md:text-sm font-semibold rounded-lg border border-transparent bg-gray-900 text-white hover:bg-gray-800 disabled:opacity-50 disabled:pointer-events-none hover:scale-[97.5%] transition-all ease-in-out"
+          >
+            <a href="#calculator">Try the Calculator</a>
+          </button>
+        </div>
+        <div class="flex items-center md:justify-end md:pr-20 mt-16 md:mt-0">
+          <div class="lottie-container max-w-[200px] md:max-w-[300px]">
+            <lottie-player
+              src="https://lottie.host/61ab3fc0-cb0e-4079-804d-5f3b3d311c3f/BigzFELzS4.json"
+              background="#FFFFFF"
+              speed="1"
+              loop
+              autoplay
+              direction="1"
+              mode="normal"
+            ></lottie-player>
+          </div>
+        </div>
+      </div>
+      <div
+        id="calculator"
+        class="md:grid md:grid-cols-2 text-left h-[100vh] w-full md:px-[15rem] bg-gray-100 absolute"
+      >
+        <div class="flex flex-col justify-center pt-[2rem]">
+          <div class="flex flex-col gap-3">
+            <h2 class="text-xl font-bold tracking-tighter md:text-5xl">
+              Calculate your returns
+            </h2>
+            <div class="max-w-[60%] md:max-w-none">
+              <p class="text-gray-500 text-xs/tight md:text-[1.05rem]/tight">
+                Make the most of your investments with dollar-cost averaging.
+                Enter your details to see how consistent investments can grow
+                over time.
+              </p>
+            </div>
           </div>
           <div class="flex flex-col py-4">
             <form
@@ -112,6 +116,9 @@
                   <option value="AR">AR</option>
                   <option value="INJ">INJ</option>
                   <option value="FLOKI">FLOKI</option>
+                  <option value="LINK">LINK</option>
+                  <option value="NEAR">NEAR</option>
+                  <option value="FANTOM">FTM</option>
                 </select>
               </div>
               <div class="flex flex-col py-2 gap-2 min-w-[10rem]">

@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.get('/', async(req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+app.get("/", async (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 app.get("/users", (req, res) => {
@@ -75,7 +75,7 @@ app.post("/calculate", async (req, res) => {
   }
   const intValue = parseInt(value);
   try {
-    const numDays = daysBetween(start_date)
+    const numDays = daysBetween(start_date);
     const response = await axios.get(
       `https://api.coingecko.com/api/v3/coins/${cryptoId[id]}/market_chart`,
       {
@@ -157,6 +157,7 @@ app.post("/calculate", async (req, res) => {
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
+  console.log(`http://localhost:${port}`);
 });
 
 function daysBetween(startDateStr) {
@@ -197,4 +198,7 @@ const cryptoId = {
   AR: "arweave",
   INJ: "injective-protocol",
   FLOKI: "floki",
+  LINK: "chainlink",
+  NEAR: "near",
+  FANTOM: "fantom",
 };
