@@ -115,8 +115,9 @@ app.post("/calculate", async (req, res) => {
     const lastPrice = prices.at(-1);
     const asset = total * lastPrice[1];
     const profit = asset - total_capital;
+    const percent = (profit / total_capital) * 100;
     res.send(`
-        <div class="flex flex-col gap-4 min-w-[20rem]">
+        <div class="flex flex-col gap-4 w-full">
                 <div class="text-left">
                   <p class="font-semibold text-lg">Total token(s)</p>
                   <h3 class="text-4xl font-bold tracking-tighter">
@@ -142,6 +143,18 @@ app.post("/calculate", async (req, res) => {
                     profit > 0
                       ? "+" + formatRupiah(profit)
                       : formatRupiah(profit)
+                  }
+                  </h3>
+                </div>
+                <div class="text-left">
+                  <p class="font-semibold text-lg">Profit/Loss Percentage</p>
+                  <h3 class="text-4xl font-bold tracking-tighter ${
+                    percent > 0 ? "text-green-600" : "text-red-600"
+                  }">
+                  ${
+                    percent > 0
+                      ? "▴" + percent.toFixed(2) + "%"
+                      : "▾" + Math.abs(percent).toFixed(2) + "%"
                   }
                   </h3>
                 </div>
@@ -201,4 +214,8 @@ const cryptoId = {
   LINK: "chainlink",
   NEAR: "near",
   FANTOM: "fantom",
+  JASMY: "jasmycoin",
+  YGG: "yield-guild-games",
+  TIA: "celestia",
+  AVAX: "avalanche-2",
 };

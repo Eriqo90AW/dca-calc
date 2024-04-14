@@ -27,15 +27,15 @@
       class="absolute bg-[#0d00ff] top-[-2.5rem] left-[-2.5rem] md:top-[-5rem] z-10 md:left-[-5rem] md:h-[10rem] md:w-[10rem] h-[5.5rem] w-[5.5rem] rounded-full md:blur-[3rem] blur-[1rem] opacity-100"
     ></div>
     <div
-      class="absolute bg-[#ffff37] z-1 top-[63vh] right-[50vw] md:top-[92.5%] md:right-0 h-[7rem] w-[7rem] md:h-[10rem] md:w-[10rem] rounded-full blur-[1rem] md:blur-[5rem] opacity-90"
+      class="absolute bg-[#ffff37] z-1 top-[63vh] right-[50vw] md:top-[90%] md:right-0 h-[7rem] w-[7rem] md:h-[10rem] md:w-[10rem] rounded-full blur-[1rem] md:blur-[5rem] opacity-90"
     ></div>
     <div
-      class="absolute bg-[#F2BB05] z-1 top-[64vh] right-[47.5vw] md:top-[92.5%] md:right-0 h-[6rem] w-[6rem] md:h-[7rem] md:w-[7rem] rounded-full blur-[1rem] md:blur-[3rem] opacity-80"
+      class="absolute bg-[#F2BB05] z-1 top-[64vh] right-[47.5vw] md:top-[90%] md:right-0 h-[6rem] w-[6rem] md:h-[7rem] md:w-[7rem] rounded-full blur-[1rem] md:blur-[3rem] opacity-80"
     ></div>
     <div class="text-center">
       <div
         id="home"
-        class="md:grid md:grid-cols-2 text-left h-[55vh] md:h-[100vh] w-full px-7 md:px-[15rem]"
+        class="md:grid md:grid-cols-2 text-left h-[100vh] md:h-[100vh] w-full px-7 md:px-[15rem]"
       >
         <div
           class="flex flex-col justify-center gap-2 md:gap-8 md:pb-20 mt-[8rem] md:mt-0"
@@ -45,7 +45,7 @@
           >
             DCA Calculator
           </h1>
-          <div class="max-w-[57%] md:max-w-none">
+          <div class="max-w-[80%] md:max-w-none">
             <p
               class="text-gray-500 text-xs/tight pb-4 md:pb-0 md:text-lg/tight dark:text-gray-400 text-justify"
             >
@@ -62,7 +62,7 @@
           </button>
         </div>
         <div class="flex items-center md:justify-end md:pr-20 mt-16 md:mt-0">
-          <div class="lottie-container max-w-[200px] md:max-w-[300px]">
+          <div class="lottie-container max-w-[250px] md:max-w-[300px]">
             <lottie-player
               src="https://lottie.host/61ab3fc0-cb0e-4079-804d-5f3b3d311c3f/BigzFELzS4.json"
               background="#FFFFFF"
@@ -107,18 +107,22 @@
                   name="id"
                   class="rounded-md border border-gray-300 py-[0.4rem] px-3"
                 >
-                  <option value="BTC">BTC</option>
-                  <option value="ETH">ETH</option>
-                  <option value="ICP">ICP</option>
-                  <option value="SOL">SOL</option>
-                  <option value="GALA">GALA</option>
-                  <option value="RNDR">RNDR</option>
-                  <option value="AR">AR</option>
-                  <option value="INJ">INJ</option>
-                  <option value="FLOKI">FLOKI</option>
-                  <option value="LINK">LINK</option>
-                  <option value="NEAR">NEAR</option>
-                  <option value="FANTOM">FTM</option>
+                  <option value="BTC">Bitcoin (BTC)</option>
+                  <option value="ETH">Ethereum (ETH)</option>
+                  <option value="ICP">Internet Computer (ICP)</option>
+                  <option value="SOL">Solana (SOL)</option>
+                  <option value="GALA">Gala Games (GALA)</option>
+                  <option value="RNDR">Render (RNDR)</option>
+                  <option value="AR">Arweave (AR)</option>
+                  <option value="INJ">Injective (INJ)</option>
+                  <option value="FLOKI">Floki (FLOKI)</option>
+                  <option value="LINK">Chainlink (LINK)</option>
+                  <option value="NEAR">Near Protocol (NEAR)</option>
+                  <option value="FANTOM">Fantom (FTM)</option>
+                  <option value="JASMY">Jasmy Coin (JASMY)</option>
+                  <option value="YGG">Yield Guild Games (YGG)</option>
+                  <option value="TIA">Celestia (TIA)</option>
+                  <option value="AVAX">Avalanche (AVAX)</option>
                 </select>
               </div>
               <div class="flex flex-col py-2 gap-2 min-w-[10rem]">
@@ -167,48 +171,42 @@
             </form>
           </div>
         </div>
-        <div class="flex flex-col justify-center items-center pt-[2rem]">
-          <div class="mb-16">
-            <span id="loading" class="htmx-indicator">
-              <img
-                src="img/infinity.gif"
-                alt="Loading..."
-                class="m-auto h-10"
-              />
-            </span>
-            <div id="result" class="transition-all ease-in-out">
-              <div class="flex flex-col gap-10 min-w-[20rem] ml-20">
-                <div
-                  class="text-justify justify-center flex flex-col items-center gap-4"
-                >
-                  <h2 class="font-bold text-3xl">Invest with Confidence</h2>
-                  <p class="text-gray-500 text-md/tight">
-                    &nbsp;&nbsp;Dollar-cost averaging (DCA) is a strategy that
-                    allows investors to spread out their investment over time,
-                    reducing the impact of market volatility. Whether the market
-                    is up or down, DCA can help you build wealth with a
-                    disciplined approach.
-                  </p>
-                </div>
-                <div
-                  class="text-justify justify-center flex flex-col items-center gap-4"
-                >
-                  <img
-                    src="img/calculator.png"
-                    alt="calculator"
-                    width="60rem"
-                    height="60rem"
-                  />
-                  <h3 class="font-bold text-lg">About the Calculator</h3>
-                  <p class="text-gray-500 text-md/tight">
-                    &nbsp;&nbsp;&nbsp;&nbsp;Our DCA calculator provides an
-                    estimate of the value of your investments based on the
-                    amount you invest, the frequency of your investments, and
-                    the duration of your investment horizon. It does not take
-                    into account any fees, taxes, or other costs associated with
-                    investing.
-                  </p>
-                </div>
+        <div class="flex flex-col justify-center">
+          <span id="loading" class="htmx-indicator">
+            <img src="img/infinity.gif" alt="Loading..." class="m-auto h-10" />
+          </span>
+          <div id="result" class="transition-all ease-in-out w-full pl-[6rem]">
+            <div class="flex flex-col gap-10 w-full">
+              <div
+                class="text-justify justify-center flex flex-col items-center gap-4"
+              >
+                <h2 class="font-bold text-3xl">Invest with Confidence</h2>
+                <p class="text-gray-500 text-md/tight">
+                  &nbsp;&nbsp;Dollar-cost averaging (DCA) is a strategy that
+                  allows investors to spread out their investment over time,
+                  reducing the impact of market volatility. Whether the market
+                  is up or down, DCA can help you build wealth with a
+                  disciplined approach.
+                </p>
+              </div>
+              <div
+                class="text-justify justify-center flex flex-col items-center gap-4"
+              >
+                <img
+                  src="img/calculator.png"
+                  alt="calculator"
+                  width="60rem"
+                  height="60rem"
+                />
+                <h3 class="font-bold text-lg">About the Calculator</h3>
+                <p class="text-gray-500 text-md/tight">
+                  &nbsp;&nbsp;&nbsp;&nbsp;Our DCA calculator provides an
+                  estimate of the value of your investments based on the amount
+                  you invest, the frequency of your investments, and the
+                  duration of your investment horizon. It does not take into
+                  account any fees, taxes, or other costs associated with
+                  investing.
+                </p>
               </div>
             </div>
           </div>
