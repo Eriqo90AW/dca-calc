@@ -218,4 +218,9 @@ const cryptoId = {
   YGG: "yield-guild-games",
   TIA: "celestia",
   AVAX: "avalanche-2",
+  ALGO: "algorand",
+  FLUX: "zelcash",
+  EGLD: "elrond-erd-2",
+  PENDLE: "pendle",
+  OM: "mantra-dao",
 };
