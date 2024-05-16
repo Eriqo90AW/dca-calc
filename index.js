@@ -115,6 +115,7 @@ app.post("/calculate", async (req, res) => {
     const lastPrice = prices.at(-1);
     const asset = total * lastPrice[1];
     const profit = asset - total_capital;
+    const avgPrice = total_capital / total
     const percent = (profit / total_capital) * 100;
     res.send(`
         <div class="flex flex-col gap-4 w-full">
@@ -137,6 +138,15 @@ app.post("/calculate", async (req, res) => {
                   </h3>
                 </div>
                 <div class="text-left">
+                    <p class="font-semibold text-lg">Average Price</p>
+                    <h3 class="text-4xl font-bold tracking-tighter">${formatRupiah(avgPrice)}</h3>
+                </div>
+                <div class="text-left">
+                    <p class="font-semibold text-lg">Current Price</p>
+                    <h3 class="text-4xl font-bold tracking-tighter">${formatRupiah(lastPrice[1])}</h3>
+                </div>
+                <div class="grid grid-cols-12">
+                <div class="text-left col-span-7">
                   <p class="font-semibold text-lg">Unrealized Profit/Loss</p>
                   <h3 class="text-4xl font-bold tracking-tighter">
                   ${
@@ -146,7 +156,7 @@ app.post("/calculate", async (req, res) => {
                   }
                   </h3>
                 </div>
-                <div class="text-left">
+                <div class="text-left col-span-5">
                   <p class="font-semibold text-lg">Profit/Loss Percentage</p>
                   <h3 class="text-4xl font-bold tracking-tighter ${
                     percent > 0 ? "text-green-600" : "text-red-600"
@@ -157,6 +167,7 @@ app.post("/calculate", async (req, res) => {
                       : "▾" + Math.abs(percent).toFixed(2) + "%"
                   }
                   </h3>
+                </div>
                 </div>
               </div>
     `);
