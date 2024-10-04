@@ -234,4 +234,7 @@ const cryptoId = {
   EGLD: "elrond-erd-2",
   PENDLE: "pendle",
   OM: "mantra-dao",
+  AIOZ: "aioz-network",
+  AGI: "delysium",
+  ONDO: "ondo-finance",
 };
