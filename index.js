@@ -237,4 +237,7 @@ const cryptoId = {
   AIOZ: "aioz-network",
   AGI: "delysium",
   ONDO: "ondo-finance",
+  KAS: "kaspa",
+  TAO: "bittensor",
+  PHA: "pha",
 };
